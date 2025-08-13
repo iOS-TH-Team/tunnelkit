@@ -1,5 +1,5 @@
 /*
- * Copyright 1995-2025 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 1995-2021 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -11,17 +11,17 @@
 # define OPENSSL_PEM_H
 # pragma once
 
-# include <openssl/macros.h>
+#include <OpenSSL/macros.h>
 # ifndef OPENSSL_NO_DEPRECATED_3_0
 #  define HEADER_PEM_H
 # endif
 
-# include <openssl/e_os2.h>
-# include <openssl/bio.h>
-# include <openssl/safestack.h>
-# include <openssl/evp.h>
-# include <openssl/x509.h>
-# include <openssl/pemerr.h>
+#include <OpenSSL/e_os2.h>
+#include <OpenSSL/bio.h>
+#include <OpenSSL/safestack.h>
+#include <OpenSSL/evp.h>
+#include <OpenSSL/x509.h>
+#include <OpenSSL/pemerr.h>
 # ifndef OPENSSL_NO_STDIO
 #  include <stdio.h>
 # endif
@@ -58,7 +58,6 @@ extern "C" {
 # define PEM_STRING_PARAMETERS   "PARAMETERS"
 # define PEM_STRING_CMS          "CMS"
 # define PEM_STRING_SM2PARAMETERS "SM2 PARAMETERS"
-# define PEM_STRING_ACERT        "ATTRIBUTE CERTIFICATE"
 
 # define PEM_TYPE_ENCRYPTED      10
 # define PEM_TYPE_MIC_ONLY       20
@@ -396,10 +395,6 @@ int PEM_ASN1_write_bio(i2d_of_void *i2d, const char *name, BIO *bp,
                        const void *x, const EVP_CIPHER *enc,
                        const unsigned char *kstr, int klen,
                        pem_password_cb *cb, void *u);
-int PEM_ASN1_write_bio_ctx(OSSL_i2d_of_void_ctx *i2d, void *vctx,
-                           const char *name, BIO *bp, const void *x,
-                           const EVP_CIPHER *enc, const unsigned char *kstr,
-                           int klen, pem_password_cb *cb, void *u);
 
 STACK_OF(X509_INFO) *PEM_X509_INFO_read_bio(BIO *bp, STACK_OF(X509_INFO) *sk,
                                             pem_password_cb *cb, void *u);
@@ -440,7 +435,7 @@ int PEM_def_callback(char *buf, int num, int rwflag, void *userdata);
 void PEM_proc_type(char *buf, int type);
 void PEM_dek_info(char *buf, const char *type, int len, const char *str);
 
-# include <openssl/symhacks.h>
+#include <OpenSSL/symhacks.h>
 
 DECLARE_PEM_rw(X509, X509)
 DECLARE_PEM_rw(X509_AUX, X509)

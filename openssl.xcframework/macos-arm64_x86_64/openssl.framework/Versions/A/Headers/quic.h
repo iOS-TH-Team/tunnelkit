@@ -1,5 +1,5 @@
 /*
- * Copyright 2022-2025 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 2022-2024 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -11,8 +11,8 @@
 # define OPENSSL_QUIC_H
 # pragma once
 
-# include <openssl/macros.h>
-# include <openssl/ssl.h>
+#include <OpenSSL/macros.h>
+#include <OpenSSL/ssl.h>
 
 # ifndef OPENSSL_NO_QUIC
 
@@ -61,11 +61,6 @@ __owur const SSL_METHOD *OSSL_QUIC_client_thread_method(void);
 /* Local errors. */
 #  define OSSL_QUIC_LOCAL_ERR_IDLE_TIMEOUT        \
     ((uint64_t)0xFFFFFFFFFFFFFFFFULL)
-
-/*
- * Method used for QUIC server operation.
- */
-__owur const SSL_METHOD *OSSL_QUIC_server_method(void);
 
 #  ifdef __cplusplus
 }

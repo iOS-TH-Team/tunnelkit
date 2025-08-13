@@ -1,49 +1,54 @@
 /*
- * Building OpenSSL for the different architectures of all iOS and tvOS devices requires different settings.
- * In order to be able to use assembly code on all devices, the choice was made to keep optimal settings for all
- * devices and use this intermediate header file to use the proper opensslconf.h file for each architecture.
-
- * See also https://github.com/x2on/OpenSSL-for-iPhone/issues/126 and referenced pull requests
+ * Copyright 2019-2021 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
  */
 
-#include <TargetConditionals.h>
+#ifndef OPENSSL_OPENSSLCONF_H
+# define OPENSSL_OPENSSLCONF_H
+# pragma once
 
-#if TARGET_OS_IOS && TARGET_OS_SIMULATOR && TARGET_CPU_X86_64
-# include <openssl/opensslconf_ios_sim_x86_64.h>
-#elif TARGET_OS_IOS && TARGET_OS_SIMULATOR && TARGET_CPU_ARM64
-# include <openssl/opensslconf_ios_sim_arm64.h>
-#elif TARGET_OS_IOS && TARGET_OS_EMBEDDED && TARGET_CPU_ARM64
-# include <openssl/opensslconf_ios_arm64.h>
-#elif TARGET_OS_IOS && TARGET_OS_EMBEDDED && TARGET_CPU_ARM64E
-# include <openssl/opensslconf_ios_arm64e.h>
-#elif TARGET_OS_OSX && TARGET_CPU_X86_64
-# include <openssl/opensslconf_macos_x86_64.h>
-#elif TARGET_OS_OSX && TARGET_CPU_ARM64
-# include <openssl/opensslconf_macos_arm64.h>
-#elif (TARGET_OS_MACCATALYST || (TARGET_OS_IOS && TARGET_OS_SIMULATOR)) && TARGET_CPU_X86_64
-# include <openssl/opensslconf_catalyst_x86_64.h>
-#elif (TARGET_OS_MACCATALYST || (TARGET_OS_IOS && TARGET_OS_SIMULATOR)) && TARGET_CPU_ARM64
-# include <openssl/opensslconf_catalyst_arm64.h>
-#elif TARGET_OS_WATCH && TARGET_OS_EMBEDDED && TARGET_CPU_ARM
-# include <openssl/opensslconf_watchos_armv7k.h>
-#elif TARGET_OS_WATCH && TARGET_OS_EMBEDDED && TARGET_CPU_ARM64
-# include <openssl/opensslconf_watchos_arm64_32.h>
-#elif TARGET_OS_WATCH && TARGET_OS_SIMULATOR && TARGET_CPU_X86_64
-# include <openssl/opensslconf_watchos_sim_x86_64.h>
-#elif TARGET_OS_WATCH && TARGET_OS_SIMULATOR && TARGET_CPU_X86
-# include <openssl/opensslconf_watchos_sim_i386.h>
-#elif TARGET_OS_WATCH && TARGET_OS_SIMULATOR && TARGET_CPU_ARM64
-# include <openssl/opensslconf_watchos_sim_arm64.h>
-#elif TARGET_OS_TV && TARGET_OS_SIMULATOR && TARGET_CPU_X86_64
-# include <openssl/opensslconf_tvos_sim_x86_64.h>
-#elif TARGET_OS_TV && TARGET_OS_SIMULATOR && TARGET_CPU_ARM64
-# include <openssl/opensslconf_tvos_sim_arm64.h>
-#elif TARGET_OS_TV && TARGET_OS_EMBEDDED && TARGET_CPU_ARM64
-# include <openssl/opensslconf_tvos_arm64.h>
-#elif TARGET_OS_VISION && TARGET_OS_SIMULATOR && TARGET_CPU_ARM64
-# include <openssl/opensslconf_xros_sim_arm64.h>
-#elif TARGET_OS_VISION && TARGET_CPU_ARM64
-# include <openssl/opensslconf_xros_arm64.h>
-#else
-# error Unable to determine target or target not included in OpenSSL build
+#include <OpenSSL/configuration.h>
+#include <OpenSSL/macros.h>
+
+#endif  /* OPENSSL_OPENSSLCONF_H */
+#if defined(__APPLE__) && defined (__x86_64__)
+/*
+ * Copyright 2019-2021 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#ifndef OPENSSL_OPENSSLCONF_H
+# define OPENSSL_OPENSSLCONF_H
+# pragma once
+
+#include <OpenSSL/configuration.h>
+#include <OpenSSL/macros.h>
+
+#endif  /* OPENSSL_OPENSSLCONF_H */
+#elif defined(__APPLE__) && defined (__arm64__)
+/*
+ * Copyright 2019-2021 The OpenSSL Project Authors. All Rights Reserved.
+ *
+ * Licensed under the Apache License 2.0 (the "License").  You may not use
+ * this file except in compliance with the License.  You can obtain a copy
+ * in the file LICENSE in the source distribution or at
+ * https://www.openssl.org/source/license.html
+ */
+
+#ifndef OPENSSL_OPENSSLCONF_H
+# define OPENSSL_OPENSSLCONF_H
+# pragma once
+
+#include <OpenSSL/configuration.h>
+#include <OpenSSL/macros.h>
+
+#endif  /* OPENSSL_OPENSSLCONF_H */
 #endif

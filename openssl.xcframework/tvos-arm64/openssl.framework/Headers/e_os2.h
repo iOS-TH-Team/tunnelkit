@@ -11,12 +11,12 @@
 # define OPENSSL_E_OS2_H
 # pragma once
 
-# include <openssl/macros.h>
+#include <OpenSSL/macros.h>
 # ifndef OPENSSL_NO_DEPRECATED_3_0
 #  define HEADER_E_OS2_H
 # endif
 
-# include <openssl/opensslconf.h>
+#include <OpenSSL/opensslconf.h>
 
 #ifdef  __cplusplus
 extern "C" {
@@ -200,7 +200,6 @@ extern "C" {
 # endif
 
 # ifndef ossl_ssize_t
-#  include <sys/types.h>
 #  define ossl_ssize_t ssize_t
 #  if defined(SSIZE_MAX)
 #   define OSSL_SSIZE_MAX SSIZE_MAX
@@ -233,7 +232,7 @@ typedef UINTN uintptr_t;
 # elif (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L) || \
      defined(__osf__) || defined(__sgi) || defined(__hpux) || \
      defined(OPENSSL_SYS_VMS) || defined (__OpenBSD__)
-#  include <inttypes.h>
+#  include <stdint.h>
 #  undef OPENSSL_NO_INTTYPES_H
 /* Because the specs say that inttypes.h includes stdint.h if present */
 #  undef OPENSSL_NO_STDINT_H
@@ -289,7 +288,7 @@ typedef uint64_t ossl_uintmax_t;
 # endif
 
 # if defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201112L && \
-     !defined(__cplusplus)
+     !defined(__cplusplus) 
 #  define ossl_noreturn _Noreturn
 # elif defined(__GNUC__) && __GNUC__ >= 2
 #  define ossl_noreturn __attribute__((noreturn))

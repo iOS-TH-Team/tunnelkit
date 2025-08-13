@@ -1,5 +1,5 @@
 /*
- * Copyright 1995-2024 The OpenSSL Project Authors. All Rights Reserved.
+ * Copyright 1995-2019 The OpenSSL Project Authors. All Rights Reserved.
  *
  * Licensed under the Apache License 2.0 (the "License").  You may not use
  * this file except in compliance with the License.  You can obtain a copy
@@ -11,15 +11,15 @@
 # define OPENSSL_OBJECTS_H
 # pragma once
 
-# include <openssl/macros.h>
+#include <OpenSSL/macros.h>
 # ifndef OPENSSL_NO_DEPRECATED_3_0
 #  define HEADER_OBJECTS_H
 # endif
 
-# include <openssl/obj_mac.h>
-# include <openssl/bio.h>
-# include <openssl/asn1.h>
-# include <openssl/objectserr.h>
+#include <OpenSSL/obj_mac.h>
+#include <OpenSSL/bio.h>
+#include <OpenSSL/asn1.h>
+#include <OpenSSL/objectserr.h>
 
 # define OBJ_NAME_TYPE_UNDEF             0x00
 # define OBJ_NAME_TYPE_MD_METH           0x01
@@ -176,7 +176,6 @@ int OBJ_find_sigid_by_algs(int *psignid, int dig_nid, int pkey_nid);
 int OBJ_add_sigid(int signid, int dig_id, int pkey_id);
 void OBJ_sigid_free(void);
 
-#define SN_ac_auditEntity SN_ac_auditIdentity
 
 # ifdef  __cplusplus
 }

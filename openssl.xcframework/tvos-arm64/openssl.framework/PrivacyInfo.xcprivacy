@@ -2,20 +2,13 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- This framework does not track users -->
-    <key>NSPrivacyTracking</key>
-    <false/>
-
-    <!-- No tracking domains -->
-    <key>NSPrivacyTrackingDomains</key>
-    <array/>
-
-    <!-- This framework does not collect data itself -->
-    <key>NSPrivacyCollectedDataTypes</key>
-    <array/>
-
-    <!-- No Apple “required reason” APIs are accessed by this framework -->
-    <key>NSPrivacyAccessedAPITypes</key>
-    <array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array/>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyTracking</key>
+	<false/>
 </dict>
 </plist>
